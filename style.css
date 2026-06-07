@@ -1,0 +1,105 @@
+:root {
+    --bg-color: #0d0f12;
+    --card-bg: rgba(26, 31, 41, 0.85);
+    --ff-yellow: #ffb400;
+    --ff-orange: #ff4500;
+    --radhe-color: #ff3b3b;
+    --shivam-color: #00d2ff;
+    --yash-color: #39ff14;
+    --text-main: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Background Image Blur Logic */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* FF Max themed image URL */
+    background: url('https://wallpaperaccess.com/full/2267562.jpg') no-repeat center center/cover;
+    filter: blur(8px) brightness(0.4); /* Blur aur dark overlay */
+    z-index: -1;
+}
+
+.main-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ... Baki sab code wahi same rahega ... */
+header { text-align: center; margin-bottom: 40px; }
+
+.ff-title { font-size: 3.5rem; font-weight: 700; color: white; text-shadow: 0 0 15px rgba(255, 69, 0, 0.5); }
+.ff-title .highlight { color: var(--ff-yellow); }
+
+.question-card {
+    background: var(--card-bg);
+    border-left: 4px solid var(--ff-orange);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Glass effect */
+}
+
+.option-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: #1a1f29;
+    color: #fff;
+    font-weight: 700;
+    border: 2px solid #333;
+}
+
+.player-label:has(input:checked).radhe { background: var(--radhe-color); border-color: #fff; }
+.player-label:has(input:checked).shivam { background: var(--shivam-color); border-color: #fff; }
+.player-label:has(input:checked).yash { background: var(--yash-color); color: #000; border-color: #fff; }
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--ff-yellow), var(--ff-orange));
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hidden { display: none; }
+#result-box { margin-top: 30px; padding: 20px; background: rgba(0,0,0,0.8); border: 2px solid var(--ff-yellow); border-radius: 10px; text-align: center; }
